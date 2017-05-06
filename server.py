@@ -55,17 +55,6 @@ def login_process():
     return redirect("/users/" + str(user.user_id))
 
 
-@app.route("/register")
-def register_form():
-    """show the registration form"""
-
-    if 'user_id' in session:
-        flash('user already signed in')
-        return redirect('/')
-    else:
-        return render_template("registration.html")
-
-
 @app.route("/register", methods=["POST"])
 def register_process():
     """Add the user to the database and log them in"""

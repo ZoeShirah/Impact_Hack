@@ -43,6 +43,31 @@ class Representative(db.Model):
         return "<Name=%s Party=%s>" % (self.first_name,
                                        self.party)
 
+
+class ZipCode(db.Model):
+
+    __tablename__ = "zipcodes"
+
+    zip_code = db.Column(db.Integer, primary_key=True)
+    district = db.Column(db.Integer)
+
+    def __repr__(self):
+
+        return "<Zip=%d District=%s>" % (self.zip_code,
+                                       self.district)
+
+class District(db.model):
+
+    __tablename__="districts"
+
+    dis_id= db.Column(db.Integer, primary_key=True, autoincrement=True)
+    district = db.Column(db.Integer, nullable=False)
+    state = db.Column(db.String(5), nullable=True)
+
+    def __repr__(self):
+
+        return "<dis_id=%s district=%s>" % (self.dis_id,
+                                       self.district)
 ##############################################################################
 # Helper functions
 
