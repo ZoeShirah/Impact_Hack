@@ -63,7 +63,7 @@ def register_form():
         flash('user already signed in')
         return redirect('/')
     else:
-        return render_template("register_form.html")
+        return render_template("registration.html")
 
 
 @app.route("/register", methods=["POST"])
@@ -103,12 +103,9 @@ def show_user(user_id):
     """Show info about a user"""
 
     user = User.query.filter_by(user_id=user_id).one()
-    star_dict = get_userStar_dict(user_id)
 
     return render_template("user_info.html",
-                           user=user,
-                           stars=star_dict,
-                           secret=SECRET)
+                           user=user)
 
 @app.route("/reps")
 def list_reps():
