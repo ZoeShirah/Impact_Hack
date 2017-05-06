@@ -7,9 +7,8 @@
 <ul>
       {% for rep in reps %}
           <li>
-              <a href="/rep/{{ rep.rep_id }}">
-                {{ rep.rep_id }} {{ rep.name }}
-              </a>
+             <a href="/rep/{{ rep.rep_id }}">{{ rep.first_name }} {{ rep.last_name }}</a> {{rep.state}} {{rep.party}}
+              
           </li>
       {% endfor %}
     </ul>

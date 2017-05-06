@@ -6,7 +6,7 @@ from jinja2 import StrictUndefined
 from flask import Flask, render_template, redirect, request, flash, session
 # from flask_debugtoolbar import DebugToolbarExtension
 import json
-
+from model import Representative, User, connect_to_db, db
 
 
 app = Flask(__name__)
@@ -70,18 +70,37 @@ def register_form():
 def register_process():
     """Add the user to the database and log them in"""
 
-    username = request.form.get('username')
+    first_name = request.form.get('first_name')
+    last_name = request.form.get('last_name')
     password = request.form.get('password')
+    zipcode = request.form.get('zipcode')
     email = request.form.get('e-mail')
+    registration_num = db.Column(db.Float, nullable=True)
 
-    user = make_user(username, password, email)
-    if user is None:
-        flash('User already exists, please choose a different username or sign in')
-        return redirect('/register')
+    emails = User.query.filter(User.email == email).first()
 
-    session['user_id'] = user.user_id
-    flash("Logged In")
-    return redirect("/")
+    if emails is None:
+
+        new_user = User(first_name=first_name,
+                        last_name=last_name,
+                        email=email,
+                        password=password,
+                        zipcode=zipcode,
+                        registration_num=registration_num)
+
+        db.session.add(new_user)
+
+        db.session.commit()
+        user_id = new_user.user_id
+        session['user_id'] = "logged_in"
+
+        # print "We just create the user"
+        flash("Thank you for registering")
+    else:
+        flash("You've already registered. Please log-in.")
+
+    return redirect("/users/" + str(user_id))
+
 
 
 @app.route('/logout')
@@ -111,17 +130,7 @@ def show_user(user_id):
 def list_reps():
     """list all representatives in the DB"""
 
-    # reps = Representative.query.all()
-
-    #for testing w/o db
-    class Representative(object):
-        def __init__(self, name, id):
-            self.rep_id = id
-            self.name = name
-
-    Rep1 = Representative("SenatorA", 1)
-    Rep2 = Representative("SenatorB", 2)
-    reps = [Rep1, Rep2]
+    reps = Representative.query.all()
 
     return render_template("reps.html",
                            reps=reps)
@@ -135,7 +144,7 @@ if __name__ == "__main__":  # pragma: no cover
     app.jinja_env.auto_reload = app.debug  # make sure templates, etc. are not cached in debug mode
     #***********************************
 
-    # connect_to_db(app, os.environ.get("DATABASE_URL", "postgresql:///"))
+    connect_to_db(app, os.environ.get("DATABASE_URL", "postgresql:///voter_data"))
 
     # db.create_all(app=app)
     PORT = int(os.environ.get("PORT", 5000))
