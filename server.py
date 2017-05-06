@@ -110,6 +110,24 @@ def show_user(user_id):
                            stars=star_dict,
                            secret=SECRET)
 
+@app.route("/reps")
+def list_reps():
+    """list all representatives in the DB"""
+
+    # reps = Representative.query.all()
+
+    #for testing w/o db
+    class Representative(object):
+        def __init__(self, name, id):
+            self.rep_id = id
+            self.name = name
+
+    Rep1 = Representative("SenatorA", 1)
+    Rep2 = Representative("SenatorB", 2)
+    reps = [Rep1, Rep2]
+
+    return render_template("reps.html",
+                           reps=reps)
 
 
 if __name__ == "__main__":  # pragma: no cover

@@ -35,7 +35,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="{% block nav_homepage %}{% endblock %}"><a href="/">Homepage<span class="sr-only">(current)</span></a></li>
-        <li class="{% block nav_stars %}{% endblock %}"><a href="">Representatives</a></li>
+        <li class="{% block nav_stars %}{% endblock %}"><a href="/reps">Representatives</a></li>
         {% if 'user_id' in session %}
           <li class="{% block nav_profile %}{% endblock %}"><a href="/users/{{ session.get('user_id') }}">Your Profile</a></li>
           <li><a href="/logout">Log Out</a></li>
