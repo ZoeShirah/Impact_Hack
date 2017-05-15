@@ -26,7 +26,7 @@ Slide Deck https://docs.google.com/presentation/d/1DaVGtBzWxlqWlXI8ylNMqtIINxnC4
 Images are from the prototype created using InVision
 
 Fill out a short survey to indicate which issues are important to you
-![alt text](Survey.png "Survey")
+![alt text](Survey.jpg "Survey")
 
 See issues and upcoming bills on your homepage<br>
 ![alt text](Home.jpeg "Home")
