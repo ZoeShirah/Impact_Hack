@@ -1,5 +1,6 @@
-from model import Representative
-
+from model import Representative, ZipCode, District
+from sqlalchemy import func
+from sqlalchemy.orm.exc import NoResultFound, MultipleResultsFound
 from model import connect_to_db, db
 from server import app
 
@@ -42,7 +43,7 @@ def load_rep():
     db.session.commit()
 
 def load_zipcodes():   
-"""Load zip_code information."""
+    """Load zip_code information."""
 
     # Delete all rows in table, so if we need to run this a second time,
     # we won't be trying to add duplicate data
@@ -50,22 +51,30 @@ def load_zipcodes():
 
     # Read file that contains 5 years of data and get all species.
     for row in open("district_by_zip_ca.csv"):
-             if count >0:
-                 row = row.rstrip()
-                 row = row.split(",")
-                 # Get the values from the row
-                 district = row[1]
-                 zip_codes = []    
-                 zip_codes.append(row[2][2:])
-                 for i in range(3,len(row)-1):
-                     zip_codes.append(row[i])
-                 zip_codes.append(row[-1][:-2])
+        if count >0:
+            print "looking at row ", count
+            row = row.rstrip()
+            row = row.split(",")
+            # Get the values from the row
+            district = row[1]
 
-            # Check if legislator is senator or house rep
+            dist = District(district=district, state="CA")
+            db.session.add(dist)
+            db.session.flush()
+            print "******* added district ******"
 
+            zip_codes = []    
+            zip_codes.append(row[2][2:])
+            for i in range(3,len(row)-1):
+                zip_codes.append(row[i])
+            zip_codes.append(row[-1][:-2])
+
+        
+            dis = District.query.filter_by(district=district).one()
+            dis_id = dis.dis_id
             for zip in zip_codes:
                 new_zip_code = ZipCode(zip_code=zip,
-                                        district=district)
+                                        district=dis_id)
                 # Add to the session or it won't ever be stored
                 db.session.add(new_zip_code)
         count += 1
@@ -81,3 +90,4 @@ if __name__ == "__main__":
 
     # Import different types of data. UNCOMMENT WHEN READY TO SEED FILE!!!!!!
     load_rep()
+    load_zipcodes()

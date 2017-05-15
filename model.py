@@ -43,22 +43,9 @@ class Representative(db.Model):
         return "<Name=%s Party=%s>" % (self.first_name,
                                        self.party)
 
+class District(db.Model):
 
-class ZipCode(db.Model):
-
-    __tablename__ = "zipcodes"
-
-    zip_code = db.Column(db.Integer, primary_key=True)
-    district = db.Column(db.Integer)
-
-    def __repr__(self):
-
-        return "<Zip=%d District=%s>" % (self.zip_code,
-                                       self.district)
-
-class District(db.model):
-
-    __tablename__="districts"
+    __tablename__="district"
 
     dis_id= db.Column(db.Integer, primary_key=True, autoincrement=True)
     district = db.Column(db.Integer, nullable=False)
@@ -68,6 +55,20 @@ class District(db.model):
 
         return "<dis_id=%s district=%s>" % (self.dis_id,
                                        self.district)
+
+class ZipCode(db.Model):
+
+    __tablename__ = "zipcodes"
+
+    zip_code = db.Column(db.Integer, primary_key=True)
+    district = db.Column(db.Integer, db.ForeignKey('district.dis_id'))
+
+    def __repr__(self):
+
+        return "<Zip=%d District=%s>" % (self.zip_code,
+                                       self.district)
+
+
 ##############################################################################
 # Helper functions
 
@@ -83,9 +84,10 @@ def connect_to_db(app, db_uri="postgresql:///voter_data"):
     db.init_app(app)
 
 
-# if __name__ == "__main__":
-#     # state of being able to work with the database directly.
+if __name__ == "__main__":
+    # state of being able to work with the database directly.
 
-#     from server import app
-#     connect_to_db(app)
-#     print "Connected to DB."
+    from server import app
+    connect_to_db(app)
+    print "Connected to DB."
+    db.create_all()

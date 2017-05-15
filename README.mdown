@@ -1,0 +1,50 @@
+# Hey Congress!
+Team Members: Peter Travis, Zoe Shirah Gotch-Strain, Rocio, Kurt Bodden, Sam Colman, and Kathryn Rowe
+
+Hey Congress solves the problem "How do we create a better connection between Congressmen and the General Public?" 
+Built during 6 hours at the Impact Hack at General Assembly on 5/6/17 with a team of 6, <b>Hey Congress!</b> recieved the award for <b>Best Overall</b>.
+
+Kate's github repository: https://github.com/kathryn-rowe/Impact-Hack
+
+Slide Deck https://docs.google.com/presentation/d/1DaVGtBzWxlqWlXI8ylNMqtIINxnC4sx_uI4Y_f99kgM/edit?usp=sharing
+
+
+![alt text](screenshots/homepage.jpg "Homepage")
+
+## Contents
+* [Tech Stack](#technologies)
+* [Features](#features)
+* [Installation](#install)
+
+## <a name="technologies"></a>Tech Stack
+<b>Backend:</b> Python, Flask, PostgreSQL, SQLAlchemy<br/>
+<b>Frontend:</b> Bootstrap, HTML5, CSS<br/>
+<b>APIs:</b> Data and APIs: Data.gov (hoping to use ProPublica API, but did not get API key in time.<br/> -->
+<!-- 
+<!-- ## <a name="database model"></a>Database Model -->
+
+<!-- ## <a name="features"></a>Features
+
+The sky maps are viewable in four directions, the current direction is visible in the dropdown menu above the sky image
+![alt text](screenshots/Star_Map.png "Star Map")
+
+A button can be clicked to view the Constellations
+![alt text](screenshots/Constellations.png "Constellations")
+
+Images of the constellations appear on the right, on mouseover of a constellation name in the list
+![alt text](screenshots/Perseus.png "Asterism")
+
+Information about stars and constellations is visible on mouseover
+![alt text](screenshots/mouseover.png "Info")
+
+Planets, and the sun and moon, are also visible, using information from the python library ephmeral
+![alt text](screenshots/Venus.png "Planets")
+
+The location can be changed in a menu below the star map.  Google Maps will autfill the latitude and longitude when the user inputs a location.
+![alt text](screenshots/Autofill.png "Change Loaction")
+
+Each star has its own info page, if the star is visible at the default location, this page will also note in which direction to look for it.
+![alt text](screenshots/StarInfo.png "Info")
+
+Users can create an account where they can set thier own default location and save stars of interest.  If those stars are visible in thier default window the direction in which to look is displayed next to the name.
+![alt text](screenshots/UserInfo.png "Users") -->
