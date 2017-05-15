@@ -28,13 +28,13 @@ Images are from the prototype created using InVision
 Fill out a short survey to indicate which issues are important to you
 ![alt text](Survey.png "Survey")
 
-See issues and upcoming bills on your homepage
+See issues and upcoming bills on your homepage<br>
 ![alt text](Home.jpeg "Home")
 
-Vote Yay or Nay on bills your Representatives will soon be voting on
+Vote Yay or Nay on bills your Representatives will soon be voting on<br>
 ![alt text](Bill.jpeg "Bill")
 
-See how other citizens with the same Representative voted on the bills
+See how other citizens with the same Representative voted on the bills<br>
 ![alt text](results.jpeg "Results")
 
 ## <a name="todo""></a>To Do
