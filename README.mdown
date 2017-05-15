@@ -1,7 +1,7 @@
 # Hey Congress!
 Team Members: Peter Travis, Zoe Shirah Gotch-Strain, Rocio, Kurt Bodden, Sam Colman, and Kathryn Rowe
 
-Hey Congress solves the problem "How do we create a better connection between Congressmen and the General Public?" 
+Hey Congress solves the problem "How do we create a better connection between Congressmen and the General Public?" <br>
 Built during 6 hours at the Impact Hack at General Assembly on 5/6/17 with a team of 6, <b>Hey Congress!</b> recieved the award for <b>Best Overall</b>.
 
 Kate's github repository: https://github.com/kathryn-rowe/Impact-Hack
@@ -9,17 +9,16 @@ Kate's github repository: https://github.com/kathryn-rowe/Impact-Hack
 Slide Deck https://docs.google.com/presentation/d/1DaVGtBzWxlqWlXI8ylNMqtIINxnC4sx_uI4Y_f99kgM/edit?usp=sharing
 
 
-![alt text](screenshots/homepage.jpg "Homepage")
+![alt text](homepage.jpg "Homepage")
 
 ## Contents
 * [Tech Stack](#technologies)
 * [Features](#features)
-* [Installation](#install)
 
 ## <a name="technologies"></a>Tech Stack
 <b>Backend:</b> Python, Flask, PostgreSQL, SQLAlchemy<br/>
 <b>Frontend:</b> Bootstrap, HTML5, CSS<br/>
-<b>APIs:</b> Data and APIs: Data.gov (hoping to use ProPublica API, but did not get API key in time.<br/> -->
+<b>APIs:</b> Data and APIs: Data.gov (hoping to use ProPublica API, but did not get API key in time.<br/> 
 <!-- 
 <!-- ## <a name="database model"></a>Database Model -->
 
