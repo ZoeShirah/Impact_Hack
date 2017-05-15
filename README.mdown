@@ -9,7 +9,7 @@ Kate's github repository: https://github.com/kathryn-rowe/Impact-Hack
 Slide Deck https://docs.google.com/presentation/d/1DaVGtBzWxlqWlXI8ylNMqtIINxnC4sx_uI4Y_f99kgM/edit?usp=sharing
 
 
-![alt text](homepage.png "Homepage")
+![alt text](Homepage.png "Homepage")
 
 ## Contents
 * [Tech Stack](#technologies)
